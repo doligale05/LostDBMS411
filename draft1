@@ -1,0 +1,84 @@
+use group1project; 
+drop tables Tours, Locations, Outings, Tour_Guides, Tests, Clients; 
+
+CREATE TABLE Tours
+(
+	tour_id int,
+    tour_name varchar (30) not null, 
+    tour_length int, 
+    fee varchar (30), 
+    primary key (tour_id)
+);
+insert into Tours (tour_id, tour_name, tour_length, fee) 
+values (1, 'Joe Shmos Washington Walk', 3, '25'), 
+       (2, 'Lijuang Towerering Heaven', 2, '25'), 
+       (3, 'Ilios Ruins', 2, '20');
+
+CREATE TABLE Locations 
+(
+	loc_id int,
+    loc_name varchar (20) not null, 
+    loc_type char (20) not null, 
+    loc_description char (100), 
+    primary key (loc_id)
+); 
+insert into Locations (loc_id, loc_name, loc_type, loc_description)
+values (1, 'Washington Monument', 'Monument', 'blah bleh'),
+       (2, 'Lijuang Tower', 'Monument', 'bleh Blah'),
+       (3, 'Ilios', 'Ancient Ruins', 'Lucios Home bruh');
+
+CREATE TABLE Outings
+(
+	outing_id int, 
+    outing_date char (20) not null, 
+    outing_time char (5) not null, 
+    primary key (outing_id) 
+); 
+insert into Outings (outing_id, outing_date, outing_time) 
+values (1, '28-Jul-2020', '09:30'),
+       (2, '30-Aug-2020', '11:30'), 
+       (3, '15-Sep-2020', '1:00'); 
+
+CREATE TABLE Tour_Guides
+(
+	emp_id int, 
+    emp_name varchar (30) not null, 
+    emp_address char (30) not null, 
+    hiring_date char (20) not null, 
+    primary key (emp_id)
+);  
+insert into Tour_Guides (emp_id, emp_name, emp_address, hiring_date) 
+values (111, 'Joe Shmo', '111 Blow Street', '11-Nov-1911'), 
+       (112, 'Soldier 76', '112 Bourbon Cir', '6-Sep-1941'),
+	   (113, 'Echo Laney', '113 Pesky Bee Way', '02-May-2019'); 
+
+CREATE TABLE Tests 
+(
+	test_id int, 
+    result char (10) not null, 
+    date_completed char (20) not null,
+    primary key (test_id)
+);
+insert into Tests (test_id, result, date_completed)
+values (1111, 'A-Passed', '12-Nov-1911'),
+       (1122, 'A-Passed', '7-Sep-1941'),
+       (1133, 'A-Passed', '03-May-2019');
+
+CREATE TABLE Clients
+(
+	client_id int, 
+    client_name varchar (30) not null, 
+    client_phone char (12) not null, 
+    primary key (client_id)
+); 
+insert into Clients (client_id, client_name, client_phone) 
+values (708, 'Luna', '773-202-Luna'), 
+       (601, 'Reinhardt', '000-420-1333'),
+       (305, 'Pitbull', '305-555-Fire');
+
+select * from Tours;
+select * from Locations;
+select * from Outings;
+select * from Tour_Guides;
+select * from Tests;
+select * from Clients; 
